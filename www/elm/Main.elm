@@ -5,6 +5,8 @@ import Html exposing (..)
 import Html.Events exposing (onClick)
 import Html.Attributes exposing (class, style)
 
+
+main : Program Never
 main =
   App.beginnerProgram
     { model = model
@@ -12,14 +14,12 @@ main =
     , view = view
     }
 
-
 -- model
 
 type alias Model = Int
 
 model : Model
 model = 0
-
 
 -- update
 
@@ -45,6 +45,7 @@ view model =
     , contentContainer (content model)
     ]
 
+content : a -> Html Msg
 content model =
   div [ class "list list-inset" ]
     [ div [ class "row", style [("text-align", "center")] ]
@@ -54,10 +55,12 @@ content model =
       ]
     ]
 
+contentContainer : Html a -> Html a
 contentContainer inside =
   div [ class "scroll-content ionic-scroll has-header scroll-content-false" ]
     [ inside ]
 
+header : Html a
 header =
   div [ class "bar bar-header bar-positive" ]
     [ h1 [ class "title" ] [ text "Counter.elm" ]
