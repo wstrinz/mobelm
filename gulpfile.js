@@ -10,7 +10,7 @@ var elm = require('gulp-elm');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
-  elm: ['./elm/**/*.elm']
+  elm: ['./www/elm/**/*.elm']
 };
 
 gulp.task('default', ['sass', 'elm']);
